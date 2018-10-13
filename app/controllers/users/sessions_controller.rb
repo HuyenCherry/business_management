@@ -6,7 +6,7 @@ class Users::SessionsController < ApplicationController
     user = User.find_by email: params[:session][:email].downcase
     if user && user.authenticate(params[:session][:password])
       log_in user
-      render "index"
+      redirect_to home_url
     else
       flash[:danger] = "Invalid email/password combination"
       render "index"

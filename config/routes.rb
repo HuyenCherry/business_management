@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'homes/index', as: "home"
   root to: "users/sessions#index"
   namespace :users do
     get "/login", to: "sessions#new"
